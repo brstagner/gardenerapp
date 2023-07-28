@@ -3,23 +3,11 @@
 require('dotenv').config();
 const { Client } = require('pg');
 
-let DB_URI = "postgresql://postgres:DKsyFWsJHO1fngEI@db.umaafotifuozpdqnnfqp.supabase.co:6543/postgres";
+let DB_URI;
 
-// process.env.NODE_ENV === "test" ?
-//     DB_URI = process.env.TEST_DB_URI :
-//     DB_URI = process.env.PROD_DB_URI;
-
-// if (process.env.NODE_ENV === "test") {
-//     DB_URI = process.env.TEST_DB_URI;
-// }
-
-// if (process.env.NODE_ENV === "production") {
-//     DB_URI = process.env.PROD_DB_URI;
-// }
-
-// if (process.env.NODE_ENV === "development") {
-//     DB_URI = process.env.DEV_DB_URI;
-// }
+process.env.NODE_ENV === "test" ?
+    DB_URI = process.env.TEST_DB_URI :
+    DB_URI = process.env.DB_URI || process.env.DEV_DB_URI;
 
 let db = new Client({
     connectionString: DB_URI
