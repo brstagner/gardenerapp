@@ -3,7 +3,7 @@
 require('dotenv').config();
 const { Client } = require('pg');
 
-let DB_URI = process.env.DB_URI;
+let DB_URI = "postgresql://postgres:DKsyFWsJHO1fngEI@db.umaafotifuozpdqnnfqp.supabase.co:6543/postgres";
 
 // process.env.NODE_ENV === "test" ?
 //     DB_URI = process.env.TEST_DB_URI :
