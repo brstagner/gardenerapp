@@ -5,21 +5,21 @@ const { Client } = require('pg');
 
 let DB_URI;
 
-// process.env.NODE_ENV === "test" ?
-//     DB_URI = process.env.TEST_DB_URI :
-//     DB_URI = process.env.DEV_DB_URI;
-
-if (process.env.NODE_ENV === "test") {
-    DB_URI = process.env.TEST_DB_URI;
-}
-
-if (process.env.NODE_ENV === "production") {
+process.env.NODE_ENV === "test" ?
+    DB_URI = process.env.TEST_DB_URI :
     DB_URI = process.env.PROD_DB_URI;
-}
 
-if (process.env.NODE_ENV === "development") {
-    DB_URI = process.env.DEV_DB_URI;
-}
+// if (process.env.NODE_ENV === "test") {
+//     DB_URI = process.env.TEST_DB_URI;
+// }
+
+// if (process.env.NODE_ENV === "production") {
+//     DB_URI = process.env.PROD_DB_URI;
+// }
+
+// if (process.env.NODE_ENV === "development") {
+//     DB_URI = process.env.DEV_DB_URI;
+// }
 
 let db = new Client({
     connectionString: DB_URI
