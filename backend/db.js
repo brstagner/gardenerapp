@@ -13,11 +13,11 @@ if (process.env.NODE_ENV === "test") {
     DB_URI = process.env.TEST_DB_URI;
 }
 
-else if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
     DB_URI = process.env.PROD_DB_URI;
 }
 
-else {
+if (process.env.NODE_ENV === "development") {
     DB_URI = process.env.DEV_DB_URI;
 }
 
