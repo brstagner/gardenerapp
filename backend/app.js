@@ -38,8 +38,8 @@ app.use("/trefle", trefleRoutes);
 app.use(trefleRoutes);
 
 // Uncomment to create tables or reset database
-// drop_tables();
-// create_tables();
+drop_tables();
+create_tables();
 
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
