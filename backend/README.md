@@ -21,12 +21,14 @@ This is a Node.js Express backend application that creates a server for maintain
    ```
    PORT = "[your port #]"
    TEST_DB_URI = "[URI string for your testing database]"
-   PROD_DB_URI = "[URI string for your production database]"
+   DEV_DB_URI = "[URI string for your production database]"
    FRONTEND_URL = "[URL string for the frontend of the application]"
    TREFLE_TOKEN = "[token to access trefle API (get at trefle.io)]"
    SECRET_KEY = "[a secret key]"
    BCRYPT_WORK_FACTOR = "[work factor # for bcrypt]"
    ```
+
+   For production, you'll need to set a DB_URI environment variable.
 
 5. Start the development server:
    ```
