@@ -3,11 +3,11 @@
 require('dotenv').config();
 const { Client } = require('pg');
 
-let DB_URI;
+let DB_URI = process.env.PROD_DB_URI;
 
-process.env.NODE_ENV === "test" ?
-    DB_URI = process.env.TEST_DB_URI :
-    DB_URI = process.env.PROD_DB_URI;
+// process.env.NODE_ENV === "test" ?
+//     DB_URI = process.env.TEST_DB_URI :
+//     DB_URI = process.env.PROD_DB_URI;
 
 // if (process.env.NODE_ENV === "test") {
 //     DB_URI = process.env.TEST_DB_URI;
