@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Caprasimo");
+
+.navbar-custom {
+  background-color: lightgreen;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: purple;
+  font-family: "Caprasimo";
+}

@@ -1,0 +1,20 @@
+.row {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5em;
+}
+
+label {
+  display: flex;
+  justify-content: left;
+  padding: 0.5em;
+  flex: 1;
+}
+input {
+  flex: 2;
+  padding: 0.5em;
+}
+
+.form-check-input:checked {
+  background-color: purple;
+}

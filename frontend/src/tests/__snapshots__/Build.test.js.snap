@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="mb-3 form-floating"
+    >
+      <input
+        autocomplete="name"
+        class="form-control"
+        id="name"
+        name="name"
+        placeholder="name"
+        type="text"
+        value="New Garden"
+      />
+      <label
+        class="form-label"
+        for="name"
+      >
+        Garden Name
+      </label>
+    </div>
+    <div
+      class="container-fluid"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="row"
+            >
+              <div
+                class="col"
+              >
+                <h6>
+                  Select a plant from your list by clicking it.
+                </h6>
+                <h6>
+                  Select "REMOVE PLANT" to clear cells.
+                </h6>
+                <h6>
+                  Add that plant to your garden by clicking a cell.
+                </h6>
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col"
+                  >
+                    <div
+                      class="row"
+                    >
+                      <div
+                        class="plant-div col"
+                        style="text-align: right; padding: 5px; cursor: pointer;"
+                      >
+                        REMOVE PLANT
+                      </div>
+                      <div
+                        class="col"
+                      />
+                    </div>
+                  </div>
+                  <br />
+                  <div
+                    class="d-flex justify-content-center"
+                  >
+                    <button
+                      class="btn btn-success"
+                    >
+                      Get more plants
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col"
+          height="50vh"
+        >
+          <div
+            class="container"
+          >
+            <h6>
+              Add rows and columns:
+            </h6>
+            <div
+              class="row"
+            >
+              <div
+                class="col"
+              >
+                <div
+                  class="text-center"
+                >
+                  Rows: 1
+                </div>
+                <div
+                  class="buttons d-flex justify-content-center"
+                >
+                  <button
+                    class="btn btn-sm btn-secondary"
+                    data-testid="row-decrement"
+                  >
+                    -
+                  </button>
+                  <button
+                    class="btn btn-sm btn-secondary"
+                    data-testid="row-increment"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <div
+                class="col"
+              >
+                <div
+                  class="text-center"
+                >
+                  Columns: 1
+                </div>
+                <div
+                  class="buttons d-flex justify-content-center"
+                >
+                  <button
+                    class="btn btn-sm btn-secondary"
+                    data-testid="col-decrement"
+                  >
+                    -
+                  </button>
+                  <button
+                    class="btn btn-sm btn-secondary"
+                    data-testid="col-increment"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <table
+            style="width: 100%; text-align: center; cursor: pointer;"
+          >
+            <tbody>
+              <tr>
+                <td
+                  data-column="1"
+                  data-row="1"
+                  style="border: 2px solid black; width: 100%; height: 100%; text-overflow: ellipsis;"
+                />
+              </tr>
+            </tbody>
+          </table>
+          <button
+            class="btn btn-primary d-inline-block"
+          >
+            Save Garden
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

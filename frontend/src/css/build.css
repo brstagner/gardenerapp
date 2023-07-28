@@ -1,0 +1,14 @@
+.focus:focus {
+  border: 5px solid black;
+}
+
+.highlighted {
+  background-color: yellow;
+}
+
+.buttons button {
+  height: 2rem;
+  width: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}

@@ -1,0 +1,609 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h4>
+      Add a Plant to Your Collection
+    </h4>
+    <div
+      class="container-fluid"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col"
+        >
+          <div>
+            <h6>
+              Search for a Plant
+            </h6>
+            <div
+              class="container"
+            >
+              <div
+                class="row"
+              >
+                <form
+                  class=""
+                  style="margin: 1em;"
+                >
+                  <div
+                    class="col"
+                  >
+                    <div
+                      class="mb-3 form-floating"
+                    >
+                      <input
+                        autocomplete="name"
+                        class="form-control"
+                        id="name"
+                        name="name"
+                        placeholder="name"
+                        type="text"
+                        value=""
+                      />
+                      <label
+                        class="form-label"
+                        for="common_name"
+                      >
+                        Common or Scientific Name
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="col"
+                  >
+                    <div
+                      class="mb-3 form-floating"
+                    >
+                      <input
+                        class="form-control"
+                        id="color"
+                        name="color"
+                        placeholder="color"
+                        type="text"
+                      />
+                      <label
+                        class="form-label"
+                        for="color"
+                      >
+                        Bloom Color
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="col"
+                  >
+                    <div
+                      class="mb-3"
+                    >
+                      Bloom Months
+                      <br />
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="jan"
+                        name="jan"
+                        placeholder="jan"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="jan"
+                      >
+                        Jan
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="feb"
+                        name="feb"
+                        placeholder="feb"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="feb"
+                      >
+                        Feb
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="mar"
+                        name="mar"
+                        placeholder="mar"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="mar"
+                      >
+                        Mar
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="apr"
+                        name="apr"
+                        placeholder="apr"
+                        type="checkbox"
+                        value="false"
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="apr"
+                      >
+                        Apr
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="may"
+                        name="may"
+                        placeholder="may"
+                        type="checkbox"
+                        value="false"
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="may"
+                      >
+                        May
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="jun"
+                        name="jun"
+                        placeholder="jun"
+                        type="checkbox"
+                        value="false"
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="jun"
+                      >
+                        Jun
+                      </label>
+                      <br />
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="jul"
+                        name="jul"
+                        placeholder="jul"
+                        type="checkbox"
+                        value="false"
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="jul"
+                      >
+                        Jul
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="aug"
+                        name="aug"
+                        placeholder="aug"
+                        type="checkbox"
+                        value="false"
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="aug"
+                      >
+                        Aug
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="sep"
+                        name="sep"
+                        placeholder="sep"
+                        type="checkbox"
+                        value="false"
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="sep"
+                      >
+                        Sep
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="oct"
+                        name="oct"
+                        placeholder="oct"
+                        type="checkbox"
+                        value="false"
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="oct"
+                      >
+                        Oct
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="nov"
+                        name="nov"
+                        placeholder="nov"
+                        type="checkbox"
+                        value="false"
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="nov"
+                      >
+                        Nov
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="dec"
+                        name="dec"
+                        placeholder="dec"
+                        type="checkbox"
+                        value="false"
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="dec"
+                      >
+                        Dec
+                      </label>
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-secondary"
+                  >
+                    Search
+                  </button>
+                </form>
+              </div>
+              <div
+                class="row"
+              >
+                <div />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col"
+        >
+          <div>
+            <h6>
+              Enter plant information
+            </h6>
+            <div
+              class="container"
+            >
+              <div
+                class="row"
+              >
+                <form
+                  class=""
+                  style="margin: 1em;"
+                >
+                  <div
+                    class="col"
+                  >
+                    <div
+                      class="mb-3 form-floating"
+                    >
+                      <input
+                        autocomplete="common_name"
+                        class="form-control"
+                        id="common_name"
+                        name="common_name"
+                        placeholder="common_name"
+                        type="text"
+                        value=""
+                      />
+                      <label
+                        class="form-label"
+                        for="common_name"
+                      >
+                        Common Name
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="col"
+                  >
+                    <div
+                      class="mb-3 form-floating"
+                    >
+                      <input
+                        autocomplete="scientific_name"
+                        class="form-control"
+                        id="scientific_name"
+                        name="scientific_name"
+                        placeholder="scientific_name"
+                        type="text"
+                        value=""
+                      />
+                      <label
+                        class="form-label"
+                        for="scientific_name"
+                      >
+                        Scientific Name
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="col"
+                  >
+                    Bloom Colors
+                    <div
+                      class="mb-3 form-floating"
+                    >
+                      <input
+                        class="form-control"
+                        id="one"
+                        name="one"
+                        placeholder="one"
+                        type="text"
+                        value=""
+                      />
+                      <label
+                        class="form-label"
+                        for="one"
+                      >
+                        Bloom Color One
+                      </label>
+                    </div>
+                    <div
+                      class="mb-3 form-floating"
+                    >
+                      <input
+                        class="form-control"
+                        id="two"
+                        name="two"
+                        placeholder="two"
+                        type="text"
+                        value=""
+                      />
+                      <label
+                        class="form-label"
+                        for="two"
+                      >
+                        Bloom Color Two
+                      </label>
+                    </div>
+                    <div
+                      class="mb-3 form-floating"
+                    >
+                      <input
+                        class="form-control"
+                        id="three"
+                        name="three"
+                        placeholder="three"
+                        type="text"
+                        value=""
+                      />
+                      <label
+                        class="form-label"
+                        for="three"
+                      >
+                        Bloom Color Three
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="col"
+                  >
+                    <div
+                      class="mb-3"
+                    >
+                       Bloom Months
+                      <br />
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="janEntry"
+                        name="janEntry"
+                        placeholder="jan"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="janEntry"
+                      >
+                        Jan
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="febEntry"
+                        name="febEntry"
+                        placeholder="feb"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="febEntry"
+                      >
+                        Feb
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="marEntry"
+                        name="marEntry"
+                        placeholder="mar"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="marEntry"
+                      >
+                        Mar
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="aprEntry"
+                        name="aprEntry"
+                        placeholder="apr"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="aprEntry"
+                      >
+                        Apr
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="mayEntry"
+                        name="mayEntry"
+                        placeholder="may"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="mayEntry"
+                      >
+                        May
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="junEntry"
+                        name="junEntry"
+                        placeholder="jun"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="junEntry"
+                      >
+                        Jun
+                      </label>
+                      <br />
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="julEntry"
+                        name="julEntry"
+                        placeholder="jul"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="julEntry"
+                      >
+                        Jul
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="augEntry"
+                        name="augEntry"
+                        placeholder="aug"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="augEntry"
+                      >
+                        Aug
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="sepEntry"
+                        name="sepEntry"
+                        placeholder="sep"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="sepEntry"
+                      >
+                        Sep
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="octEntry"
+                        name="octEntry"
+                        placeholder="oct"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="octEntry"
+                      >
+                        Oct
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="novEntry"
+                        name="novEntry"
+                        placeholder="nov"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="novEntry"
+                      >
+                        Nov
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="btn-check form-check-input"
+                        id="decEntry"
+                        name="decEntry"
+                        placeholder="dec"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="btn btn-outline-primary form-label"
+                        for="decEntry"
+                      >
+                        Dec
+                      </label>
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-secondary"
+                  >
+                    Add Plant
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

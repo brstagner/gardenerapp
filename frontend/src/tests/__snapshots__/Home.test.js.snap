@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot for logged-in user 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <h4>
+      Welcome to the Gardener App.
+    </h4>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot for no logged-in user 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row gy-5"
+      >
+        <div
+          class="col"
+        >
+          <div
+            class="p-3"
+          >
+            <h4
+              class="d-flex justify-content-center"
+            >
+              Have an account?
+            </h4>
+            <div
+              class="d-flex justify-content-center"
+            >
+              <a
+                class="btn btn-primary d-inline-block"
+                href="/login"
+              >
+                Login
+              </a>
+            </div>
+          </div>
+          <div
+            class="p-3"
+          />
+          <div
+            class="p-3"
+          >
+            <h4
+              class="d-flex justify-content-center"
+            >
+              New user?
+            </h4>
+            <div
+              class="d-flex justify-content-center"
+            >
+              <a
+                class="btn btn-primary d-inline-block"
+                href="/register"
+              >
+                Register
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
