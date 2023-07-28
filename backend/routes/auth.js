@@ -7,7 +7,6 @@ const jsonschema = require("jsonschema");
 const User = require("../models/user");
 const express = require("express");
 const router = new express.Router();
-// const { createToken } = require("../auth");
 const { createToken } = require("../authorization");
 
 const userAuthSchema = require("../schemas/userAuth.json");

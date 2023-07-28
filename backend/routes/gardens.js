@@ -4,7 +4,6 @@
 const jsonschema = require('jsonschema');
 
 const express = require('express');
-// const { isAdmin, isUser, userId } = require('../auth');
 
 const { authenticateJWT, isAdmin, isUser } = require('../authorization');
 
@@ -13,7 +12,7 @@ const { BadRequestError, UnauthorizedError } = require('../expressError');
 const Garden = require('../models/garden');
 const gardenNewSchema = require('../schemas/gardenNew.json');
 const gardenUpdateSchema = require('../schemas/gardenUpdate.json');
-const { userId } = require('../auth');
+// const { userId } = require('../auth');
 
 const router = express.Router();
 
