@@ -3,6 +3,7 @@
 /** Express app for Gardener. */
 
 const express = require('express');
+const cors = require('cors');
 const { json } = require('express');
 
 const { NotFoundError } = require("./expressError");
