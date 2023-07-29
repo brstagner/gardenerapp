@@ -13,8 +13,10 @@ const userAuthSchema = require("../schemas/userAuth.json");
 const userRegisterSchema = require("../schemas/userNew.json");
 const { BadRequestError } = require("../expressError");
 
+const FRONTEND_URL = process.env.FRONTEND_URL;
+
 router.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL);
+    res.header("Access-Control-Allow-Origin", FRONTEND_URL);
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
     res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept, Authorization, header");
     next();

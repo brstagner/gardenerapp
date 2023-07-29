@@ -47,7 +47,7 @@ function Plants ({ currUser }) {
                             (<i>{plant.scientific_name}</i>)
                         </div>
                         <div className="col">
-                            <a className="btn btn-sm btn-outline-primary" href={`/plants/${plant.plant_id}`}>edit</a><br />
+                            <button className="btn btn-sm btn-outline-primary" onClick={() => nav(`/plants/${plant.plant_id}`)}>edit</button><br />
                             <button className="btn btn-sm btn-outline-danger" onClick={() => deletePlant(plant)}>delete</button>
                         </div>
                     </div>)) : null}

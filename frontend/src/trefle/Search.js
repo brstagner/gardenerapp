@@ -40,7 +40,7 @@ function Search ({ handlePlantSelect }) {
         // added in case user enters 'true' string into those fields
         let months = [];
         for (const [key, value] of Object.entries(formData)) {
-            if (value === true && value != ('name' || 'color')) {
+            if (value === true && value !== ('name' || 'color')) {
                 months.push(key);
             };
         }

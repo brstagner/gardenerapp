@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Alert } from "reactstrap";
+// import { Alert } from "reactstrap";
 
 function Home ({ currUser }) {
 

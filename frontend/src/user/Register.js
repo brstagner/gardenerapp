@@ -27,12 +27,16 @@ function Register ({ currUser, register }) {
     /** Call addUser with formData */
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await register({
-            ...formData,
-            location: { name: formData.location }
-        });
-        if (res.token) {
-            nav('');
+        try {
+            await register({
+                ...formData,
+                location: { name: formData.location }
+            });
+            nav('/');
+        }
+        catch (error) {
+            console.log(error);
+            nav('/');
         }
     };
 

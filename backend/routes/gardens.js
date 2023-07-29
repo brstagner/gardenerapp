@@ -17,8 +17,10 @@ const gardenUpdateSchema = require('../schemas/gardenUpdate.json');
 
 const router = express.Router();
 
+const FRONTEND_URL = process.env.FRONTEND_URL;
+
 router.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL);
+    res.header("Access-Control-Allow-Origin", FRONTEND_URL);
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
     res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept, Authorization, header");
     next();

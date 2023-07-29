@@ -8,12 +8,16 @@ function App () {
   const [currUser, setCurrUser] = useState();
 
   useEffect(() => {
-    setCurrUser({
-      username: localStorage.username,
-      userId: localStorage.userId,
-      isAdmin: localStorage.isAdmin,
-      token: localStorage.token
-    });
+    if ("username" in localStorage && localStorage.username !== undefined) {
+      setCurrUser({
+        username: localStorage.username,
+        userId: localStorage.userId,
+        isAdmin: localStorage.isAdmin,
+        token: localStorage.token
+      });
+      console.log("username");
+    }
+
   }, []);
 
   /** Login an existing user */
@@ -53,6 +57,7 @@ function App () {
       localStorage.setItem("userId", res.data.user_id);
       localStorage.setItem("isAdmin", res.data.is_admin);
       localStorage.setItem("token", res.data.token);
+      return res;
     } catch (errors) {
       console.log(errors);
     }

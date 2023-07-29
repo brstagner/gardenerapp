@@ -40,11 +40,13 @@ class Api {
     }
 
     /** Add a new user to database */
-    static async addUser (user, token) {
+    static async addUser (user) {
         try {
-            const res = await axios.post(`${BASE_URL}auth/register`, user,
-                { headers: { Authorization: token } }
+            const res = await axios.post(`${BASE_URL}auth/register`, user
+                // ,
+                // { headers: { Authorization: token } }
             );
+            console.log(res);
             return res;
         }
         catch (error) {
@@ -54,16 +56,18 @@ class Api {
     }
 
     /** Login a user, get a token */
-    static async loginUser (user, token) {
+    static async loginUser (user) {
         try {
-            const res = await axios.post(`${BASE_URL}auth/token`, user,
-                { headers: { Authorization: token } }
+            const res = await axios.post(`${BASE_URL}auth/token`, user
+                // ,
+                // { headers: { Authorization: token } }
             );
             return res;
         }
         catch (error) {
-            let message = error.response.data.error.message;
-            throw message;
+            // let message = error.response.data.error.message;
+            // throw message;
+            console.log(error);
         }
     }
 
@@ -261,7 +265,7 @@ class Api {
     /** Delete a garden */
     static async deleteGarden (garden_id, userId, token) {
         try {
-            const res = await axios.delete(
+            await axios.delete(
                 `${BASE_URL}gardens/${garden_id}`,
                 {
                     headers: { Authorization: token },

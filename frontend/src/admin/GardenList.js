@@ -30,7 +30,10 @@ function GardenList ({ currUser }) {
 
     useEffect(() => {
         getGardens();
-    }, []);
+        // cut dependency array
+        // }, []);
+    });
+
 
     return (
         <div>
