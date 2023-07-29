@@ -1,7 +1,7 @@
 'use strict';
 
 /** Routes for plants. */
-
+require('dotenv').config();
 const jsonschema = require('jsonschema');
 const express = require('express');
 const { authenticateJWT, isAdmin, isUser } = require('../authorization');

@@ -1,6 +1,7 @@
 'use strict';
 
 /** Routes for users. */
+require('dotenv').config();
 const jsonschema = require('jsonschema');
 
 const express = require('express');

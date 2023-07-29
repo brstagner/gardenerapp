@@ -1,7 +1,7 @@
 "use strict";
 
 /** Routes for authentication. */
-
+require('dotenv').config();
 const jsonschema = require("jsonschema");
 
 const User = require("../models/user");
