@@ -2,12 +2,20 @@
 
 /** Express app for Gardener. */
 
+// NEW
+const throng = require('throng');
+const WORKERS = process.env.WEB_CONCURRENCY || 1;
+
+throng({
+    workers: WORKERS,
+    lifetime: Infinity
+}, start);
+// NEW
+
 const express = require('express');
 const { json } = require('express');
 
 const { NotFoundError } = require("./expressError");
-
-// const { authenticateJWT } = require("./auth");
 
 const usersRoutes = require("./routes/users");
 const plantsRoutes = require("./routes/plants");
@@ -38,8 +46,8 @@ app.use("/trefle", trefleRoutes);
 app.use(trefleRoutes);
 
 // Uncomment to create tables or reset database
-drop_tables();
-create_tables();
+// drop_tables();
+// create_tables();
 
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
