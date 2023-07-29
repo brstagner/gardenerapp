@@ -12,22 +12,24 @@ const { NotFoundError } = require("./expressError");
 const app = express();
 
 // MAYBE?
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://gardenbloom.surge.sh");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS, DELETE");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "https://gardenbloom.surge.sh");
+//     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS, DELETE");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
-    // Add the Vary header for CORS-related headers
-    // res.header("Vary", "Origin, Access-Control-Request-Headers, Access-Control-Request-Method");
-    res.header("Vary", "Origin, Access-Control-Request-Headers, Access-Control-Request-Method, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers");
+//     // Add the Vary header for CORS-related headers
+//     // res.header("Vary", "Origin, Access-Control-Request-Headers, Access-Control-Request-Method");
+//     res.header("Vary", "Origin, Access-Control-Request-Headers, Access-Control-Request-Method, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers");
 
-    // Handle preflight requests
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200);
-    }
+//     // Handle preflight requests
+//     if (req.method === 'OPTIONS') {
+//         return res.sendStatus(200);
+//     }
 
-    next();
-});
+//     next();
+// });
+
+app.use(cors());
 
 const usersRoutes = require("./routes/users");
 const plantsRoutes = require("./routes/plants");

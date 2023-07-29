@@ -31,6 +31,7 @@ function FrontRoutes ({
             <main>
                 {currUser ? (
                     <Routes>
+                        <Route path="*" element={<Home currUser={currUser} />} />
                         <Route path="/" element={
                             <Home
                                 currUser={currUser}
@@ -81,26 +82,23 @@ function FrontRoutes ({
                             <UserList
                                 currUser={currUser}
                             />} />
-                    </Routes>
-                ) : (
-                    <Routes>
-                        <Route path="/" element={
+                        <Route path="*" element={
                             <Home
                                 currUser={currUser}
                             />} />
+                    </Routes>
+                ) : (
+                    <Routes>
+                        <Route path="*" element={<Home />} />
+                        <Route path="/" element={
+                            <Home />} />
                         <Route path="/register" element={
                             <Register
-                                currUser={currUser}
                                 register={register}
                             />} />
                         <Route path="/login" element={
                             <LogIn
-                                currUser={currUser}
                                 login={login}
-                            />} />
-                        <Route path="/users" element={
-                            <UserList
-                                currUser={currUser}
                             />} />
                     </Routes>
                 )}

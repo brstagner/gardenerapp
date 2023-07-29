@@ -276,8 +276,9 @@ class Api {
             return "deleted";
         }
         catch (error) {
-            let message = error.response.data.error.message;
-            throw message;
+            // let message = error.response.data.error.message;
+            // throw message;
+            console.log(error);
         }
     }
 }
