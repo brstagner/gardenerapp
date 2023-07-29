@@ -2,16 +2,6 @@
 
 /** Express app for Gardener. */
 
-// NEW
-const throng = require('throng');
-const WORKERS = process.env.WEB_CONCURRENCY || 1;
-
-throng({
-    workers: WORKERS,
-    lifetime: Infinity
-}, start);
-// NEW
-
 const express = require('express');
 const { json } = require('express');
 
