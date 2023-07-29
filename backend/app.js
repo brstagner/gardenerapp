@@ -38,9 +38,6 @@ const gardensRoutes = require("./routes/gardens");
 const authRoutes = require("./routes/auth");
 const trefleRoutes = require("./routes/trefle");
 
-
-
-
 app.use(json());
 const { drop_tables, create_tables } = require('./db');
 

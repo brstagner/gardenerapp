@@ -20,9 +20,7 @@ function UserList ({ currUser }) {
 
     useEffect(() => {
         getUsers();
-        // cut dependency array
-        // }, []);
-    });
+    }, []);
 
     const deleteUser = async (user_id) => {
         try {
