@@ -31,6 +31,9 @@ router.use(function (req, res, next) {
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS, DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
+    // Add the Vary header for CORS-related headers
+    res.header("Vary", "Origin, Access-Control-Request-Headers, Access-Control-Request-Method");
+
     // Handle preflight requests
     if (req.method === 'OPTIONS') {
         return res.sendStatus(200);
