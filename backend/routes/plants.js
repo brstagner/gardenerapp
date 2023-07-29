@@ -15,10 +15,23 @@ const router = express.Router();
 
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
+// router.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", FRONTEND_URL);
+//     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS, DELETE");
+//     res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept, Authorization, header");
+//     next();
+// });
+
 router.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", FRONTEND_URL);
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
-    res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept, Authorization, header");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+
+    // Handle preflight requests
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+
     next();
 });
 
