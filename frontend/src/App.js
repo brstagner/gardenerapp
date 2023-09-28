@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import Api from './Api';
 import Routes from "./Routes";
 import './css/app.css';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
+
 
 function App () {
 
@@ -15,8 +18,8 @@ function App () {
         isAdmin: localStorage.isAdmin,
         token: localStorage.token
       });
-      console.log("username");
     }
+    else setCurrUser();
 
   }, []);
 
@@ -63,6 +66,29 @@ function App () {
     }
   }
 
+  /** Update user profile */
+  async function editProfile (data) {
+    try {
+      const res = await Api.editUser(currUser.userId, data, currUser.token);
+      console.log(res.data.user);
+      localStorage.setItem("username", res.data.user.username);
+      localStorage.setItem("userId", res.data.user.user_id);
+      localStorage.setItem("isAdmin", res.data.user.is_admin);
+      localStorage.setItem("token", res.data.user.token);
+      setCurrUser({
+        ...currUser,
+        username: res.data.user.username,
+        userId: res.data.user.user_id,
+        isAdmin: res.data.user.is_admin || false
+      });
+      return "success";
+    } catch (error) {
+      // setErrors(errors);
+      // return `error: ${errors}`;
+      console.log(error);
+    }
+  }
+
   /** Logout current user, clear state and localStorage */
   const logout = () => {
     localStorage.clear();
@@ -71,12 +97,15 @@ function App () {
 
   return (
     <div className="App">
-      <Routes
-        currUser={currUser}
-        login={login}
-        logout={logout}
-        register={register}
-      />
+      <ThemeProvider theme={theme}>
+        <Routes
+          currUser={currUser}
+          login={login}
+          logout={logout}
+          register={register}
+          editProfile={editProfile}
+        />
+      </ThemeProvider>
     </div>
   );
 }

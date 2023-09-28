@@ -170,7 +170,11 @@ class User {
         }
         if (password) {
             columns += `password = $${counter},`;
-            args.push(password);
+
+            // hash password
+            const hash = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
+
+            args.push(hash);
             counter++;
         }
         if (email) {

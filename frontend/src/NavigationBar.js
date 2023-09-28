@@ -14,7 +14,7 @@ const NavigationBar = ({ currUser, logout }) => {
         nav('/');
     };
 
-    const admin =
+    const admin = currUser?.isAdmin === "true" ?
         <div className="dropdown d-flex justify-content-center">
             <button
                 className="btn btn-link nav-link dropdown-toggle"
@@ -46,7 +46,8 @@ const NavigationBar = ({ currUser, logout }) => {
                     </NavLink>
                 </li>
             </ul>
-        </div>;
+        </div> :
+        null;
 
     return (
         <nav className="navbar navbar-expand-sm navbar-custom">
@@ -86,7 +87,8 @@ const NavigationBar = ({ currUser, logout }) => {
                                 Plants
                             </NavLink>
                         </li>
-                        {currUser.isAdmin === "true" ? admin : null}
+                        {/* {currUser.isAdmin === "true" ? admin : null} */}
+                        {admin}
                         <li className="nav-item d-flex justify-content-center">
                             <button
                                 className="btn btn-link nav-link"
@@ -94,10 +96,28 @@ const NavigationBar = ({ currUser, logout }) => {
                                 Log Out
                             </button>
                         </li>
+                        {/* <li>
+                            <a href="https://github.com/brstagner/gardenerapp/">
+                                <img
+                                    src="github-mark.svg"
+                                    alt="github logo link"
+                                    height="40"
+                                    className="navbar-brand mb-0 h1 fs-2"
+                                />
+                            </a>
+                        </li> */}
                     </ul>
                 </div>) :
                 null
             }
+            {/* <a href="https://github.com/brstagner/gardenerapp/">
+                <img
+                    src="github-mark.svg"
+                    alt="github logo link"
+                    height="40"
+                    className="navbar-brand mb-0 h1 fs-2"
+                />
+            </a> */}
         </nav>
     );
 };

@@ -23,37 +23,75 @@ function createToken (user) {
  * 
  * @ param {object} req - {headers: {authorization: token}, params: {user_id}}
  */
-function authenticateJWT (token) {
+
+
+// WORKS?
+function authenticateJWT (req, res, next) {
     try {
-        const payload = jwt.verify(token, process.env.SECRET_KEY);
-        return payload;
+        const token = req.headers && req.headers.authorization;
+        if (token) {
+            res.locals.user = jwt.verify(token, process.env.SECRET_KEY);
+        }
+        return next();
+    } catch (err) {
+        return next();
     }
-    catch (error) {
-        // No error passed for missing or faulty token
-        return;
+}
+// WORKS?
+
+
+// function authenticateJWT (token) {
+//     try {
+//         const payload = jwt.verify(token, process.env.SECRET_KEY);
+//         return payload;
+//     }
+//     catch (error) {
+//         // No error passed for missing or faulty token
+//         return;
+//     }
+// }
+
+
+function isAdmin (req, res, next) {
+    try {
+        if (!res.locals.user || !res.locals.user.isAdmin) throw new UnauthorizedError();
+        return next();
+    } catch (err) {
+        return next(err);
     }
 }
 
-function isAdmin (user) {
-    if (!user.isAdmin) {
-        throw new UnauthorizedError("Must be administrator to view this page");
-    }
-    else {
-        return true;
+
+// function isAdmin (user) {
+//     if (!user.isAdmin) {
+//         throw new UnauthorizedError("Must be administrator to view this page");
+//     }
+//     else {
+//         return true;
+//     }
+// }
+
+function isUser (req, res, next) {
+    try {
+        if (!res.locals.user || ((req.params.user_id != res.locals.user.user_id) && (!res.locals.user.isAdmin)))
+            throw new UnauthorizedError();
+        return next();
+    } catch (err) {
+        return next(err);
     }
 }
 
-function isUser (currUserId, authUser) {
-    if (
-        (!authUser.isAdmin && // Not admin
-            (+currUserId !== +authUser.userId)) // Requested user_id is not userId from token
-    ) {
-        throw new UnauthorizedError(`Must be authorized user to view this page`);
-    }
-    else {
-        return true;
-    }
-}
+// function isUser (currUserId, authUser) {
+//     if (
+//         (!authUser.isAdmin && // Not admin
+//             (+currUserId !== +authUser.userId)) // Requested user_id is not userId from token
+//     ) {
+//         throw new UnauthorizedError(`Must be authorized user to view this page`);
+//     }
+//     else {
+//         return true;
+//     }
+// }
 
 module.exports = {
     createToken,

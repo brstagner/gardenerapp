@@ -1,4 +1,5 @@
-import DisplayCell from "./DisplayCell";
+import DisplayCell from "./MUIDisplayCell";
+import { AspectRatio } from "@mui/joy/AspectRatio";
 import "../../css/display.css";
 import { auto } from "@popperjs/core";
 
@@ -37,16 +38,10 @@ function DisplayGrid ({ grid, month, leafed, handleCellSelect, plants }) {
         rows.push(<tr key={y}>{row}</tr>);
     }
     return <div className="table-container">
+        <h6>Hover cursor over a cell to see plant name</h6>
+        <h6>Click a cell to go to plant page</h6>
         <table
-            style={{
-                aspectRatio: numCols / numRows,
-                overflow: auto,
-                tableLayout: "fixed",
-                cursor: "pointer",
-                maxWidth: "50vw",
-                maxHeight: "50vh",
-                margin: "10px"
-            }}
+            style={{ aspectRatio: numCols / numRows, overflow: auto, tableLayout: "fixed", cursor: "pointer" }}
             width="100%"
             className="square-table">
             <tbody

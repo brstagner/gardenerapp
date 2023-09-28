@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Caprasimo");
-
+/* 
 .navbar-custom {
   background-color: lightgreen;
 }
@@ -8,4 +8,8 @@
 .navbar-custom .navbar-text {
   color: purple;
   font-family: "Caprasimo";
+} */
+
+a:hover {
+  color: inherit;
 }

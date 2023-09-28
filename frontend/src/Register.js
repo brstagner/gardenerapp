@@ -1,6 +1,5 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Box,
     Button,
@@ -8,88 +7,45 @@ import {
     TextField,
     Typography
 } from '@mui/material';
-import Api from "../Api";
-// import "../css/forms.css";
 
-/** User profile edit form */
-function Profile ({ editProfile, currUser }) {
+const Register = ({ register, toggleMode }) => {
+
     let nav = useNavigate();
 
-    const [formData, setFormData] = useState();
+    const initialState = {
+        username: "",
+        password: "",
+        email: "",
+        location: ""
+    };
 
-    const [username, setUsername] = useState();
-
-    const [error, setError] = useState();
-
-    useEffect(() => {
-        async function getUser () {
-            try {
-                let res = await Api.getUser(+currUser.userId, currUser.token);
-                setFormData({
-                    username: res.username,
-                    email: res.email,
-                    location: res.location.name,
-                    password: "",
-                    confirm: ""
-                });
-                setUsername(res.username);
-            }
-            catch (err) {
-                console.log(err);
-                nav('/');
-            }
-        }
-        getUser();
-    }, []);
+    const [formData, setFormData] = useState(initialState);
 
     /** Update formData */
     const handleChange = (e) => {
-        e.preventDefault();
         setFormData((data) => ({
             ...data,
             [e.target.name]: e.target.value,
         }));
     };
 
-    /** Call editProfile with form data */
+    /** Call register with form data */
     const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
-            let res;
-            e.preventDefault();
-            if (!formData.email.includes('@')) {
-                throw new Error("Email format invalid");
-            }
-            if (formData.password !== formData.confirm) {
-                throw new Error("Password and Password Confirmation do not match");
-            }
-            if (!formData.password) {
-                res = await editProfile({
-                    newUsername: formData.username,
-                    email: formData.email,
-                    location: { name: formData.location }
-                });
-                console.log(res);
-            } else {
-                res = await editProfile({
-                    newUsername: formData.username,
-                    email: formData.email,
-                    location: { name: formData.location },
-                    password: formData.password
-                });
-                console.log(res);
-            }
-            if (res === "success") {
-                nav("/");
-            }
+            await register({
+                ...formData,
+                location: { name: formData.location }
+            });
+            nav('/');
         }
-        catch (err) {
-            // setError(err.message);
+        catch (error) {
             console.log(error);
+            nav('/');
         }
-
     };
 
-    return formData ? (
+    return (
         <Box
             sx={{
                 marginTop: 8,
@@ -101,7 +57,7 @@ function Profile ({ editProfile, currUser }) {
         >
             <Card sx={{ padding: "20px", maxWidth: '20rem' }}>
                 <Typography component="h1" variant="h5">
-                    Edit Profile
+                    Register
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     <TextField
@@ -136,6 +92,7 @@ function Profile ({ editProfile, currUser }) {
                         label="Email"
                         name="email"
                         autoComplete="email"
+                        autoFocus
                         value={formData.email}
                         onChange={handleChange}
                     />
@@ -147,20 +104,28 @@ function Profile ({ editProfile, currUser }) {
                         label="Location"
                         name="location"
                         autoComplete="location"
+                        autoFocus
                         value={formData.location}
                         onChange={handleChange}
                     />
                     <Button
                         type="submit"
+                        fullWidth
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
                     >
-                        Submit
+                        Register
                     </Button>
+                    <div>
+                        Already registered?
+                        <Button onClick={() => toggleMode()}>
+                            Log in here
+                        </Button>
+                    </div>
                 </Box>
             </Card>
         </Box>
-    ) : null;
-}
+    );
+};
 
-export default Profile;
+export default Register;

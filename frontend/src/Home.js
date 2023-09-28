@@ -1,41 +1,61 @@
-import { NavLink } from "react-router-dom";
-// import { Alert } from "reactstrap";
+import { useState } from 'react';
+import { CssBaseline, Grid, Container } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import SignIn from "./SignIn";
+import Register from "./Register";
+import PlantsCard from "./PlantsCard";
+import GardensCard from "./GardensCard";
 
-function Home ({ currUser }) {
+const defaultTheme = createTheme();
 
-    return (
-        <div className="container">
-            {currUser ?
-                <h4>Welcome to the Gardener App.</h4> :
-                <div className="container">
-                    <div className="row gy-5">
-                        <div className="col">
-                            <div className="p-3">
-                                <h4 className="d-flex justify-content-center">
-                                    Have an account?
-                                </h4>
-                                <div className="d-flex justify-content-center">
-                                    <NavLink className="btn btn-primary d-inline-block" to="/login">
-                                        Login
-                                    </NavLink>
-                                </div>
-                            </div>
-                            <div className="p-3"></div>
-                            <div className="p-3">
-                                <h4 className="d-flex justify-content-center">
-                                    New user?
-                                </h4>
-                                <div className="d-flex justify-content-center">
-                                    <NavLink className="btn btn-primary d-inline-block" to="/register">
-                                        Register
-                                    </NavLink>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
+function Home ({ currUser, login, register }) {
+
+    const [mode, setMode] = useState('login');
+
+    const toggleMode = () => mode === 'login' ? setMode('register') : setMode('login');
+
+    if (currUser) return (
+        <Container
+            sx={{
+                marginTop: 8,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>
+            <Grid
+                container
+                justifyContent="center"
+            >
+                <Grid
+                    container
+                    justifyContent="center"
+                    item xs={12} sm={6}
+                >
+                    <PlantsCard currUser={currUser} />
+                </Grid>
+                <Grid
+                    container
+                    justifyContent="center"
+                    item xs={12} sm={6}
+                >
+                    <GardensCard currUser={currUser} />
+                </Grid>
+            </Grid>
+        </Container>
+    );
+
+    else return (
+        <ThemeProvider theme={defaultTheme}>
+            <Container component="main">
+                <CssBaseline />
+                {mode === 'login' ?
+                    <SignIn login={login} toggleMode={toggleMode} />
+                    :
+                    <Register register={register} toggleMode={toggleMode} />
+                }
+            </Container>
+        </ThemeProvider>
     );
 }
 

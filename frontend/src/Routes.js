@@ -4,41 +4,49 @@ import NavigationBar from "./NavigationBar";
 import Home from "./Home";
 import Register from "./user/Register";
 import LogIn from "./user/LogIn";
+
+import SignIn from "./SignIn";
 import UserList from "./admin/UserList";
 import Profile from "./user/Profile";
 import Plants from "./plants/Plants";
 import Plant from "./plants/Plant";
+
+import EditPlant from "./plants/EditPlant";
 import NewPlant from "./plants/NewPlant";
 import Gardens from "./gardens/Gardens";
 import GardenList from "./admin/GardenList";
 import PlantList from "./admin/PlantList";
 import GardenBuilder from "./gardens/build/GardenBuilder";
 import Display from "./gardens/display/Display";
+import MUIDisplay from "./gardens/display/MUIDisplay";
+
+import Search from "./plants/Search";
+
+import NavBar from "./NavBar";
 
 function FrontRoutes ({
     currUser,
     login,
     logout,
-    register
+    register,
+    editProfile
 }) {
 
     return (
         <BrowserRouter>
-            <NavigationBar
-                currUser={currUser}
-                logout={logout}
-            />
+            <NavBar currUser={currUser} logout={logout} />
             <main>
                 {currUser ? (
                     <Routes>
-                        <Route path="*" element={<Home currUser={currUser} />} />
+                        <Route path="*" element={<Home login={login} register={register} currUser={currUser} />} />
                         <Route path="/" element={
-                            <Home
+                            <Home login={login} register={register}
                                 currUser={currUser}
                             />} />
                         <Route path="/profile" element={
                             <Profile
                                 currUser={currUser}
+                                editProfile={editProfile}
                             />} />
                         <Route path="/plants" element={
                             <Plants
@@ -52,8 +60,13 @@ function FrontRoutes ({
                             <NewPlant
                                 currUser={currUser}
                             />} />
+
+                        <Route path="/search" element={
+                            <Search currUser={currUser} />} />
+
+
                         <Route path="/plants/:plant_id" element={
-                            <Plant
+                            <EditPlant
                                 currUser={currUser}
                             />} />
                         <Route path="/gardens" element={
@@ -75,31 +88,31 @@ function FrontRoutes ({
                                 method={"patch"}
                             />} />
                         <Route path="/gardens/:garden_id" element={
-                            <Display
+                            <MUIDisplay
                                 currUser={currUser}
                             />} />
                         <Route path="/users" element={
                             <UserList
                                 currUser={currUser}
                             />} />
-                        <Route path="*" element={
+                        {/* <Route path="*" element={
                             <Home
                                 currUser={currUser}
-                            />} />
+                            />} /> */}
                     </Routes>
                 ) : (
                     <Routes>
-                        <Route path="*" element={<Home />} />
+                        <Route path="*" element={<Home login={login} register={register} />} />
                         <Route path="/" element={
-                            <Home />} />
-                        <Route path="/register" element={
+                            <Home login={login} register={register} />} />
+                        {/* <Route path="/register" element={
                             <Register
                                 register={register}
                             />} />
                         <Route path="/login" element={
-                            <LogIn
+                            <SignIn
                                 login={login}
-                            />} />
+                            />} /> */}
                     </Routes>
                 )}
             </main>

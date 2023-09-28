@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Form, FormGroup, Col, Input, Label, Button } from "reactstrap";
 import Api from "./Api";
 import Page from "./Page";
+import PlantSelectionDialog from "../plants/PlantSelectionDialog";
 import "../css/forms.css";
 import "../css/build.css";
 
@@ -289,14 +290,15 @@ function Search ({ handlePlantSelect }) {
                         <ul>
                             <h6>Select a result to add its information to the submission form</h6>
                             {plants.map(plant =>
-                                <li key={plant.slug}
-                                    id={plant.id}
-                                    className="plant-div"
-                                    onClick={handlePlantSelect}
-                                    style={{ cursor: "pointer" }}
-                                >
-                                    {plant.common_name} ({plant.scientific_name})
-                                </li>
+                                // <li key={plant.slug}
+                                //     id={plant.id}
+                                //     className="plant-div"
+                                //     onClick={handlePlantSelect}
+                                //     style={{ cursor: "pointer" }}
+                                // >
+                                //     {plant.common_name} ({plant.scientific_name})
+                                // </li>
+                                <PlantSelectionDialog plant={plant} />
                             )}
                         </ul> :
                         <div>{message}</div>}
