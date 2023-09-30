@@ -13,7 +13,7 @@ const { NotFoundError } = require("./expressError");
 const app = express();
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://gardenbloom.surge.sh");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS, DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
