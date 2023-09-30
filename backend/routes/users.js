@@ -5,7 +5,7 @@ const { db } = require('../db');
 const jsonschema = require('jsonschema');
 
 const express = require('express');
-const { isAdmin, isUser } = require('../authorization');
+const { isAdmin, isUser, authenticateJWT } = require('../authorization');
 const { BadRequestError } = require('../expressError');
 const User = require('../models/user');
 const { createToken } = require('../authorization');
@@ -21,8 +21,10 @@ router.use(function (req, res, next) {
     next();
 });
 
+router.use(authenticateJWT);
+
 /**Get all users */
-router.get('/', async function (req, res, next) {
+router.get('/', isAdmin, async function (req, res, next) {
     try {
         const users = await User.getAllUsers();
         return res.json({ users });

@@ -14,7 +14,7 @@ class Api {
     /** Get all users */
     static async getUsers (token) {
         try {
-            let res = await axios.get(`${BASE_URL}users/all`,
+            let res = await axios.get(`${BASE_URL}users`,
                 { headers: { Authorization: token } }
             );
             return res.data.users;
@@ -117,34 +117,19 @@ class Api {
     }
 
     /** Get user's plants */
-    static async getUserPlants (userId, token) {
+    static async getUserPlants (token) {
         try {
-            let res = await axios.post(`${BASE_URL}plants/collection`,
-                {
-                    headers: { Authorization: token },
-                    user_id: userId
-                });
+            let res = await axios.get(`${BASE_URL}plants/collection`,
+                { headers: { Authorization: token } }
+            );
             return res.data.plants;
         }
         catch (error) {
-            let message = error.response.data.error.message;
-            throw message;
+            // let message = error.response.data.error.message;
+            // throw message;
+            console.log(error);
         }
     }
-    // static async getUserPlants (userId, token) {
-    //     try {
-    //         let res = await axios.get(`${BASE_URL}plants/user/${userId}`,
-    //             {
-    //                 headers: { Authorization: token },
-    //                 user_id: userId
-    //             });
-    //         return res.data.plants;
-    //     }
-    //     catch (error) {
-    //         let message = error.response.data.error.message;
-    //         throw message;
-    //     }
-    // }
 
     /** Get details on a plant by plant_id. */
     static async getPlant (plant_id, token) {
@@ -152,7 +137,8 @@ class Api {
             let res = await axios.get(
                 `${BASE_URL}plants/${plant_id}`,
                 { headers: { Authorization: token } });
-            return res.data.plant;
+            console.log(res);
+            return res.data;
         }
         catch (error) {
             let message = error.response.data.error.message;
@@ -220,13 +206,10 @@ class Api {
     }
 
     /** Get user's gardens */
-    static async getUserGardens (user_id, token) {
+    static async getUserGardens (token) {
         try {
-            let res = await axios.post(`${BASE_URL}gardens/collection`,
-                {
-                    headers: { Authorization: token },
-                    user_id: user_id
-                });
+            let res = await axios.get(`${BASE_URL}gardens/collection`,
+                { headers: { Authorization: token } });
             return res.data.gardens;
         }
         catch (error) {
@@ -234,17 +217,6 @@ class Api {
             throw message;
         }
     }
-    // static async getUserGardens (user_id, token) {
-    //     try {
-    //         let res = await axios.get(`${BASE_URL}gardens/user/${user_id}`,
-    //             { headers: { Authorization: token } });
-    //         return res.data.gardens;
-    //     }
-    //     catch (error) {
-    //         let message = error.response.data.error.message;
-    //         throw message;
-    //     }
-    // }
 
     /** Get details on a garden by garden_id. */
     static async getGarden (garden_id, token) {
@@ -252,7 +224,7 @@ class Api {
             let res = await axios.get(
                 `${BASE_URL}gardens/${garden_id}`,
                 { headers: { Authorization: token } });
-            return res.data.garden;
+            return res.data;
         }
         catch (error) {
             let message = error.response.data.error.message;

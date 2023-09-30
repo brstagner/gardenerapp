@@ -5,7 +5,7 @@ const { db } = require('../db');
 const jsonschema = require('jsonschema');
 
 const express = require('express');
-const { isAdmin, isUser } = require('../authorization');
+const { ownsGarden, isAdmin, isUser, authenticateJWT } = require('../authorization');
 const { BadRequestError } = require('../expressError');
 const User = require('../models/user');
 const Garden = require('../models/garden');
@@ -22,6 +22,8 @@ router.use(function (req, res, next) {
     next();
 });
 
+router.use(authenticateJWT);
+
 /**Get all gardens */
 router.get('/all', isAdmin, async function (req, res, next) {
     try {
@@ -34,10 +36,10 @@ router.get('/all', isAdmin, async function (req, res, next) {
 });
 
 /**Get user's gardens */
-router.post('/collection', async function (req, res, next) {
+router.get('/collection', async function (req, res, next) {
     // console.log(req.body);
     try {
-        const gardens = await Garden.getUserGardens(req.body.user_id);
+        const gardens = await Garden.getUserGardens(res.locals.user.userId);
         return res.json({ gardens });
 
     }
@@ -47,10 +49,11 @@ router.post('/collection', async function (req, res, next) {
 });
 
 /**Get one garden */
-router.get('/:garden_id', async function (req, res, next) {
+router.get('/:garden_id', ownsGarden, async function (req, res, next) {
     try {
-        const garden = await Garden.getOneGarden(req.params.garden_id);
-        return res.json({ garden });
+        // const garden = await Garden.getOneGarden(req.params.garden_id);
+        return res.status(200).json(res.locals.garden);
+        // return res.json({ garden });
     }
     catch (err) {
         return next(err);

@@ -12,8 +12,9 @@ function Plants ({ currUser }) {
     const [plants, setPlants] = useState([]);
 
     async function getPlants () {
+        console.log(currUser.token);
         try {
-            let plantsRes = await Api.getUserPlants(+currUser.userId, currUser.token);
+            let plantsRes = await Api.getUserPlants(currUser.token);
             setPlants(plantsRes);
         }
         catch (errors) {

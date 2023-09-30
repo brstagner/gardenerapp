@@ -3,7 +3,7 @@
 /** Express app for Gardener. */
 
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const { json } = require('express');
 
 const { NotFoundError } = require("./expressError");
@@ -29,7 +29,7 @@ const app = express();
 //     next();
 // });
 
-app.use(cors());
+// app.use(cors());
 
 const usersRoutes = require("./routes/users");
 const plantsRoutes = require("./routes/plants");

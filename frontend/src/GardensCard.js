@@ -11,7 +11,7 @@ function GardensCard ({ currUser }) {
 
     async function getGardens () {
         try {
-            let gardensRes = await Api.getUserGardens(+currUser.userId, currUser.token);
+            let gardensRes = await Api.getUserGardens(currUser.token);
             setGardens(gardensRes);
         }
         catch (errors) {

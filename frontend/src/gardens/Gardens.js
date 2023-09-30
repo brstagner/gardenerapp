@@ -12,7 +12,7 @@ function Gardens ({ currUser }) {
 
     async function getGardens () {
         try {
-            let res = await Api.getUserGardens(+currUser.userId, currUser.token);
+            let res = await Api.getUserGardens(currUser.token);
             setGardens(res);
         }
         catch (errors) {

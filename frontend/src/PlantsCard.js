@@ -11,7 +11,8 @@ function PlantsCard ({ currUser }) {
 
     async function getPlants () {
         try {
-            let plantsRes = await Api.getUserPlants(+currUser.userId, currUser.token);
+            // let plantsRes = await Api.getUserPlants(+currUser.userId, currUser.token);
+            let plantsRes = await Api.getUserPlants(currUser.token);
             setPlants(plantsRes);
         }
         catch (errors) {
@@ -36,7 +37,7 @@ function PlantsCard ({ currUser }) {
                     <Typography gutterBottom variant="h5" component="div">
                         My Plants
                     </Typography>
-                    {plants.length ?
+                    {plants ?
                         <div>
                             {plants.map(plant => (
                                 <div key={plant.plant_id}>

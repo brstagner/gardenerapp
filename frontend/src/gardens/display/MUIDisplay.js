@@ -39,7 +39,7 @@ function Display ({ currUser }) {
     // Get user's saved plants from database
     const getPlants = async () => {
         try {
-            let res = await Api.getUserPlants(+currUser.userId, currUser.token);
+            let res = await Api.getUserPlants(currUser.token);
             setPlants(res);
         }
         catch (errors) {

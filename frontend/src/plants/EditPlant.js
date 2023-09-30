@@ -82,7 +82,7 @@ function EditPlant ({ currUser }) {
             console.log(formData);
             const res = await Api.editPlant(plant_id, {
 
-                user_id: +currUser.userId,
+                // user_id: +currUser.userId,
                 common_name: formData.common_name || "",
                 scientific_name: formData.scientific_name || "",
                 bloom_color: {
@@ -106,9 +106,9 @@ function EditPlant ({ currUser }) {
                 }
             },
                 currUser.token);
-            if (res === "success") {
-                nav('/plants');
-            }
+            // if (res === "success") {
+            nav('/plants');
+            // }
         }
         catch (errors) {
             console.log(errors);

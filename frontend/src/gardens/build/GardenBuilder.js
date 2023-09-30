@@ -25,7 +25,7 @@ function GardenBuilder ({ currUser }) {
     //** Gets plants saved by the current user */
     const getPlants = async () => {
         try {
-            let res = await Api.getUserPlants(+currUser.userId, currUser.token);
+            let res = await Api.getUserPlants(currUser.token);
             setPlants(res);
         }
         catch (errors) {
