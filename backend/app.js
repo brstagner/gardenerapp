@@ -3,7 +3,7 @@
 /** Express app for Gardener. */
 
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 const { json } = require('express');
 
 const { NotFoundError } = require("./expressError");
@@ -12,24 +12,24 @@ const { NotFoundError } = require("./expressError");
 
 const app = express();
 
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://24.207.227.204");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS, DELETE");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "http://24.207.227.204");
+//     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS, DELETE");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
-    // Add the Vary header for CORS-related headers
-    // res.header("Vary", "Origin, Access-Control-Request-Headers, Access-Control-Request-Method");
-    res.header("Vary", "Origin, Access-Control-Request-Headers, Access-Control-Request-Method, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers");
+//     // Add the Vary header for CORS-related headers
+//     // res.header("Vary", "Origin, Access-Control-Request-Headers, Access-Control-Request-Method");
+//     res.header("Vary", "Origin, Access-Control-Request-Headers, Access-Control-Request-Method, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers");
 
-    // Handle preflight requests
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200);
-    }
+//     // Handle preflight requests
+//     if (req.method === 'OPTIONS') {
+//         return res.sendStatus(200);
+//     }
 
-    next();
-});
+//     next();
+// });
 
-// app.use(cors());
+app.use(cors());
 
 const usersRoutes = require("./routes/users");
 const plantsRoutes = require("./routes/plants");
