@@ -12,6 +12,7 @@ const { UnauthorizedError } = require("./expressError");
 function createToken (user) {
 
     let payload = {
+        userId: user.user_id,
         username: user.username,
         isAdmin: user.is_admin || false,
     };
