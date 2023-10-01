@@ -30,6 +30,7 @@ const app = express();
 // });
 
 app.use(cors());
+app.options('*', cors());
 
 const usersRoutes = require("./routes/users");
 const plantsRoutes = require("./routes/plants");
